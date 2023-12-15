@@ -20,12 +20,12 @@ func (s *BoyerMooreSearcher) Find(pattern, text string) int {
 OUTTER:
 	for i := 0; i < len(text)-len(pattern)+1; {
 		for j := len(pattern) - 1; j > -1; j-- {
-			if pattern[i] != text[i+j] {
+			if pattern[j] != text[i+j] {
 				move, ok := table[text[i+j]]
 				if !ok {
 					i += max(1, j-len(pattern))
 				} else {
-					i += max(1, move)
+					i += max(1, j-move)
 				}
 				continue OUTTER
 			}

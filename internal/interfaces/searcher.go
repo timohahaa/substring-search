@@ -1,4 +1,4 @@
-package substringsearch
+package interfaces
 
 type StringSearcher interface {
 	Find(pattern, text string) int
