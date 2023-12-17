@@ -8,7 +8,6 @@ import (
 	"log/slog"
 	"os"
 	"strconv"
-	"sync"
 )
 
 // vary the pattern length from 0 to 1000
@@ -17,21 +16,16 @@ import (
 func testPatternLength(text string, runs, maxPatternLength int, writer *csv.Writer) {
 	writer.Write([]string{"No", "length", "Go", "Naive", "RK", "BM", "KMP"})
 
-	results := make(chan Result)
-	wg := &sync.WaitGroup{}
+	results := &[]Result{}
 
 	for i := 1; i < maxPatternLength; i++ {
-		wg.Add(1)
-		go testSearchers(text, i, runs, results, wg)
+		// creating less goroutines makes test data way more clear!
+		/*go*/
+		testSearchers(text, i, runs, results)
 	}
 
-	go func() {
-		wg.Wait()
-		close(results)
-	}()
-
 	No := 1
-	for result := range results {
+	for _, result := range *results {
 		record := make([]string, 7)
 		record[0] = strconv.Itoa(No)
 		record[1] = strconv.Itoa(result.patternLength)

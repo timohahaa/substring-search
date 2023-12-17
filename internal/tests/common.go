@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math/rand"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/timohahaa/substring-search/internal/algos"
@@ -12,7 +11,7 @@ import (
 )
 
 const (
-	RUNS = 10_000
+	RUNS = 1000
 )
 
 type Mean struct {
@@ -41,9 +40,7 @@ type Result struct {
 	textLength    int
 }
 
-func testSearchers(text string, patternLength, runs int, results chan Result, wg *sync.WaitGroup) {
-	defer wg.Done()
-
+func testSearchers(text string, patternLength, runs int, results *[]Result) {
 	searchers := []searcherEntry{
 		{algos.NewBuiltintSearcher(), &Mean{}},
 		{algos.NewNaiveSearcher(), &Mean{}},
@@ -78,5 +75,5 @@ func testSearchers(text string, patternLength, runs int, results chan Result, wg
 		result = append(result, se.mean.GetMean())
 	}
 
-	results <- Result{result, patternLength, len(text)}
+	*results = append(*results, Result{result, patternLength, len(text)})
 }

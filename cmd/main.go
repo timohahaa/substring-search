@@ -37,20 +37,20 @@ func main() {
 	start := time.Now()
 
 	// lorem
-	//tests.RunTestForVaryintPatternLength("resources/lorem.txt", "resources/lorem_pattern_length.csv", 445)
-	//tests.RunTestForVaryintTextLength("resources/lorem.txt", "resources/lorem_text_length_10.csv", 10, 445)
-	//tests.RunTestForVaryintTextLength("resources/lorem.txt", "resources/lorem_text_length_256.csv", 256, 445)
-	//
-	//	// dna
-	//tests.RunTestForVaryintPatternLength("resources/dna.txt", "resources/dna_pattern_length.csv", 1000)
-	//tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_10.csv", 10, 5010)
-	//tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_256.csv", 256, 5256)
-	//tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_1000.csv", 1000, 5871)
-	//
-	//	// alice
-	//tests.RunTestForVaryintPatternLength("resources/alice.txt", "resources/alice_pattern_length.csv", 1000)
-	//tests.RunTestForVaryintTextLength("resources/alice.txt", "resources/alice_text_length_10.csv", 10, 5010)
-	//tests.RunTestForVaryintTextLength("resources/alice.txt", "resources/alice_text_length_256.csv", 256, 5256)
+	tests.RunTestForVaryintPatternLength("resources/lorem.txt", "resources/lorem_pattern_length.csv", 445)
+	tests.RunTestForVaryintTextLength("resources/lorem.txt", "resources/lorem_text_length_10.csv", 10, 445)
+	tests.RunTestForVaryintTextLength("resources/lorem.txt", "resources/lorem_text_length_256.csv", 256, 445)
+
+	// dna
+	tests.RunTestForVaryintPatternLength("resources/dna.txt", "resources/dna_pattern_length.csv", 1000)
+	tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_10.csv", 10, 5010)
+	tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_256.csv", 256, 5256)
+	tests.RunTestForVaryintTextLength("resources/dna.txt", "resources/dna_text_length_1000.csv", 1000, 5871)
+
+	// alice
+	tests.RunTestForVaryintPatternLength("resources/alice.txt", "resources/alice_pattern_length.csv", 1000)
+	tests.RunTestForVaryintTextLength("resources/alice.txt", "resources/alice_text_length_10.csv", 10, 5010)
+	tests.RunTestForVaryintTextLength("resources/alice.txt", "resources/alice_text_length_256.csv", 256, 5256)
 	tests.RunTestForVaryintTextLength("resources/alice.txt", "resources/alice_text_length_1000.csv", 1000, 6000)
 	//
 	//	// Marcus Aurelius (244067 symbols)
